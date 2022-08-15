@@ -5,15 +5,15 @@
 
 * {
     box-sizing: border-box;
-    font-family: sfProLight;
     margin: 0;
     background-color: black;
+    font-family: sfProLight;
 }
 
 .header {
     display: grid;
     place-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     color: whitesmoke;
 }
 
@@ -25,10 +25,10 @@
     padding: 12px;
     background-color: black;
     border-radius: 30px;
-    width: max(15vw, 350px);
-    height: max(60vh, 625px);
+    width: max(350px);
+    height: max(625px);
     margin-inline: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 button {

@@ -22,15 +22,15 @@ const buttons = document.querySelectorAll('.calculator button');
 function removeDisplay() {
     display.textContent = '';
     removeEventListener('mouseup', removeDisplay);
-}  
-
-buttons.forEach(e => {
-    addEventListener('mouseup', removeDisplay)
-    addEventListener('click', displayInput);
-});
+}
 
 function displayInput(e) {
     if (e.target.className == 'number') {
     display.textContent += e.target.textContent;
     }
 }
+
+buttons.forEach(e => {
+    addEventListener('mouseup', removeDisplay)
+    addEventListener('click', displayInput);
+});
