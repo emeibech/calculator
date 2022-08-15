@@ -15,5 +15,22 @@ const operations = {
 }
 
 
+//display user input
+const display = document.querySelector('#display')
+const buttons = document.querySelectorAll('.calculator button');
 
-console.log(operations.multiply(12, 12));
+function removeDisplay() {
+    display.textContent = '';
+    removeEventListener('mouseup', removeDisplay);
+}  
+
+buttons.forEach(e => {
+    addEventListener('mouseup', removeDisplay)
+    addEventListener('click', displayInput);
+});
+
+function displayInput(e) {
+    if (e.target.className == 'number') {
+    display.textContent += e.target.textContent;
+    }
+}

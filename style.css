@@ -45,7 +45,7 @@ button {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: white;
     background-color: black;
     padding-inline-end: 10px;
