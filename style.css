@@ -1,41 +1,106 @@
+@font-face {
+    font-family: sfProLight;
+    src: url(https://fontsfree.net//wp-content/fonts/basic/sans-serif/FontsFree-Net-SFProText-Light-1.ttf);
+  }
+
 * {
     box-sizing: border-box;
+    font-family: sfProLight;
+    margin: 0;
+    background-color: black;
 }
 
 .header {
     display: grid;
     place-items: center;
-    border: 1px solid brown;
+    margin-top: 1.5rem;
+    color: whitesmoke;
 }
 
 .calculator {
-    border: 1px solid purple;
+    border: 2px solid blanchedalmond;
     display: grid;
-    grid-template: repeat(6, 1fr) / repeat(4, 1fr);
-    gap: 5px;
-    padding: 5px;
+    grid-template: repeat(8, 1fr) / repeat(4, 1fr);
+    gap: 12px;
+    padding: 12px;
+    background-color: black;
+    border-radius: 30px;
+    width: max(15vw, 350px);
+    height: max(60vh, 625px);
+    margin-inline: auto;
+    margin-top: 3rem;
 }
 
 button {
     border-radius: 50%;
     border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    height: min(4.5rem);
 }
 
 .display {
     grid-column: 1 / 5;
-    grid-row: 1 / 2;
-    border: 1px solid rebeccapurple;
+    grid-row: 1 / 4;
     display: flex;
     justify-content: flex-end;
-    font-size: 1rem;
-}
-
-.zero {
-    grid-column: 1 / 3;
-    display: flex;
+    align-items: flex-end;
+    font-size: 4.5rem;
+    color: white;
+    background-color: black;
+    padding-inline-end: 10px;
 }
 
 #zero {
-    flex: 1;
     border-radius: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-inline: 1.6rem;
+    grid-column: 1 / 3;
 }
+
+.number {
+    color: white;
+    background-color: #313131;
+    font-size: 2.2rem;
+}
+
+.number:hover {
+    background-color: #636161;
+}
+
+.number:active {
+    background-color: #313131;
+    transition: 100ms;
+}
+
+.operator {
+    color: white;
+    background-color: #f69906;
+    font-size: 2.2rem;
+}
+
+.operator:hover {
+    background-color: #f7bd61;
+}
+
+.operator:active {
+    color: #f69906;
+    background-color: white;
+}
+
+.function {
+    background-color: #9f9f9f;
+}
+
+.function:hover {
+    background-color: #e0dcdc;
+}
+
+.function:active {
+    background-color: #9f9f9f;
+    transition: 100ms;
+}
+
+

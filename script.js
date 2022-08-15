@@ -16,5 +16,4 @@ const operations = {
 
 
 
-
 console.log(operations.multiply(12, 12));
