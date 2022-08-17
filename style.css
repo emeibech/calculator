@@ -6,8 +6,11 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    background-color: black;
     font-family: sfProLight;
+}
+
+body {
+    background-color: black;
 }
 
 .header {
@@ -25,8 +28,8 @@
     padding: 12px;
     background-color: black;
     border-radius: 30px;
-    width: max(350px);
-    height: max(625px);
+    width: min(350px);
+    height: min(625px);
     margin-inline: auto;
     margin-top: 2rem;
 }
@@ -37,6 +40,7 @@ button {
     cursor: pointer;
     font-size: 1.6rem;
     height: min(4.5rem);
+    width: max(100%);
 }
 
 .display {
@@ -48,10 +52,11 @@ button {
     font-size: 5rem;
     color: white;
     background-color: black;
-    padding-inline-end: 10px;
+    padding-inline-end: 8px;
+    width: max(100%);
 }
 
-#zero {
+.zero {
     border-radius: 40px;
     display: flex;
     justify-content: flex-start;
@@ -91,6 +96,7 @@ button {
 }
 
 .function {
+    color: black;
     background-color: #9f9f9f;
 }
 

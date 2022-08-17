@@ -16,21 +16,29 @@ const operations = {
 
 
 //display user input
-const display = document.querySelector('#display')
-const buttons = document.querySelectorAll('.calculator button');
+const display = document.querySelector('#display p')
+const numbers = document.querySelectorAll('.calculator .number');
+const allClear = document.querySelector('#all-clear')
 
-function removeDisplay() {
+function removeZero() {
     display.textContent = '';
-    removeEventListener('mouseup', removeDisplay);
+    removeEventListener('mouseup', removeZero);
 }
 
-function displayInput(e) {
-    if (e.target.className == 'number') {
+function getInput(e) {
+    if (e.target.className.includes('number')) {
     display.textContent += e.target.textContent;
     }
 }
 
-buttons.forEach(e => {
-    addEventListener('mouseup', removeDisplay)
-    addEventListener('click', displayInput);
+const displayNumbers = function() {numbers.forEach(e => {
+    addEventListener('mouseup', removeZero)
+    addEventListener('click', getInput);
 });
+}
+displayNumbers();
+
+allClear.addEventListener('click', function(){
+    display.textContent = 0;
+    displayNumbers();
+})
