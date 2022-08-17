@@ -5,6 +5,7 @@ const equal = document.querySelector('#equal');
 const func = document.querySelectorAll('.function');
 const display = document.querySelector('#display p');
 const ac = document.querySelector('#clear');
+const zero = document.querySelector('#zero')
 
 //constructor that handles the calculations
 function Calculate(firstNum, operator, secondNum){
@@ -44,51 +45,56 @@ const clear = function(e) {
     }
 }
 
-const allClear = function(e) {
-    if(e.target.id == 'clear') {
+const allClear = function() {
+        addEventListener('mousedown', clear);
         display.textContent = '0';
         removeEventListener('mousedown', allClear);
+        ac.textContent = 'AC';
+}
+
+const zeroClear = function() {
+    if(display.textContent == 0) {
+        addEventListener('mousedown', clear);
+        display.textContent = '0';
+        removeEventListener('mousedown', zeroClear);
     }
 }
 
-ac.addEventListener('click', allClear);
+ac.addEventListener('mousedown', allClear);
+zero.addEventListener('mousedown', zeroClear);
 
 //get value for first number
 numbers.forEach(e => {
         addEventListener('mousedown', clear);
-        addEventListener('mouseup', getFirstNum);
+        e.addEventListener('mouseup', getFirstNum);
     });
 
-//display number
+
+//display and get number
 function getFirstNum(e) {
-    if(e.target.className.includes('number')) {
         display.textContent += e.target.textContent;
-    }
+        ac.textContent = 'C';
 }
 
 //get operator
 operators.forEach(e => {
-    addEventListener('click', getOperator);
+    e.addEventListener('click', getOperator);
 });
 
 function getOperator(e) {
-    if(e.target.className.includes('operator')) {
         operator = e.target.id;
 
         //assign firstNum
         firstNum = Number(display.textContent);
-        addEventListener('mousedown', clear);   
-    }
+        addEventListener('mousedown', clear);
 }
 
 //get second number and calculate
 equal.addEventListener('click', getSecondNum);
 
-function getSecondNum(e) {
-    if(e.target.className.includes('equal')) {
+function getSecondNum() {
         secondNum = Number(display.textContent);
         toCalculate = new Calculate(firstNum, operator, secondNum);
         display.textContent = toCalculate[operator]();
         addEventListener('mousedown', clear);
-    }
 }
