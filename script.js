@@ -44,6 +44,15 @@ const clear = function(e) {
     }
 }
 
+const allClear = function(e) {
+    if(e.target.id == 'clear') {
+        display.textContent = '0';
+        removeEventListener('mousedown', allClear);
+    }
+}
+
+ac.addEventListener('click', allClear);
+
 //get value for first number
 numbers.forEach(e => {
         addEventListener('mousedown', clear);
