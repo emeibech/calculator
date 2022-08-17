@@ -95,6 +95,6 @@ equal.addEventListener('click', getSecondNum);
 function getSecondNum() {
         secondNum = Number(display.textContent);
         toCalculate = new Calculate(firstNum, operator, secondNum);
-        display.textContent = toCalculate[operator]();
+        display.textContent = Math.round(toCalculate[operator]() * 100) / 100;
         addEventListener('mousedown', clear);
 }
