@@ -26,8 +26,8 @@ body {
     padding: 12px;
     background-color: black;
     border-radius: 30px;
-    width: min(90vw, 350px);
-    height: min(90vh, 625px);
+    width: min(90%, 300px);
+    height: min(90%, 575px);
     margin-top: 2rem;
     border: 2px solid wheat;
 }
@@ -37,7 +37,7 @@ button {
     border: none;
     cursor: pointer;
     font-size: 1.6rem;
-    height: min(4.5rem);
+    height: 100%;
     width: 100%;
 }
 
@@ -51,8 +51,8 @@ button {
     color: white;
     background-color: black;
     padding-inline-end: 8px;
+    height: 100%;
     width: 100%;
-    border: 2px solid wheat;
 }
 
 #zero {
