@@ -17,22 +17,25 @@ function Calculate(firstNum, operator, secondNum){
 
 //add the numbers
 Calculate.prototype.add = function() {
-    if(this.operator == 'add') return this.firstNum + this.secondNum;
+    if(this.operator == 'add') return Math.round((this.firstNum + this.secondNum)* 100)  / 100;
 }
 
 //subract the second number from the first number
 Calculate.prototype.subtract = function() {
-    if(this.operator == 'subtract') return this.firstNum - this.secondNum;
+    if(this.operator == 'subtract') return Math.round((this.firstNum - this.secondNum)* 100)  / 100;
 }
 
 //multiply the numbers
 Calculate.prototype.multiply = function() {
-    if(this.operator == 'multiply') return this.firstNum * this.secondNum;
+    if(this.operator == 'multiply') return Math.round((this.firstNum * this.secondNum)* 100)  / 100;
 }
 
 //divide the first number with the second number
 Calculate.prototype.divide = function() {
-    if(this.operator == 'divide') return this.firstNum / this.secondNum;
+    if(this.operator == 'divide') {
+        if(this.secondNum === 0) return 'lol';
+        return Math.round((this.firstNum / this.secondNum)* 100 ) / 100;
+}
 }
 
 //get input
@@ -104,6 +107,6 @@ equal.addEventListener('click', getSecondNum);
 function getSecondNum(e) {
         secondNum = Number(display.textContent);
         toCalculate = new Calculate(firstNum, operator, secondNum);
-        display.textContent = Math.round(toCalculate[operator]() * 100) / 100;
+        display.textContent = toCalculate[operator]();
         addEventListener('mousedown', clear);
 }
