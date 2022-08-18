@@ -33,7 +33,7 @@ Calculate.prototype.multiply = function() {
 //divide the first number with the second number
 Calculate.prototype.divide = function() {
     if(this.operator == 'divide') {
-        if(this.secondNum === 0) return 'lol';
+        if(this.secondNum === 0) return 'u stupid?';
         return Math.round((this.firstNum / this.secondNum)* 100 ) / 100;
 }
 }
