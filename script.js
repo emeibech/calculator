@@ -53,10 +53,8 @@ const allClear = function() {
 }
 
 const zeroClear = function() {
-    if(display.textContent == 0) {
-        addEventListener('mousedown', clear);
-        display.textContent = '0';
-        removeEventListener('mousedown', zeroClear);
+    if(display.textContent == '0') {
+        display.textContent = '';
     }
 }
 
@@ -69,9 +67,9 @@ numbers.forEach(e => {
         e.addEventListener('mouseup', getFirstNum);
     });
 
-
 //display and get number
 function getFirstNum(e) {
+    if (display.textContent === '0') zeroClear();
         display.textContent += e.target.textContent;
         ac.textContent = 'C';
 }
@@ -92,7 +90,7 @@ function getOperator(e) {
 //get second number and calculate
 equal.addEventListener('click', getSecondNum);
 
-function getSecondNum() {
+function getSecondNum(e) {
         secondNum = Number(display.textContent);
         toCalculate = new Calculate(firstNum, operator, secondNum);
         display.textContent = Math.round(toCalculate[operator]() * 100) / 100;
