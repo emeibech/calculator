@@ -5,7 +5,8 @@ const equal = document.querySelector('#equal');
 const func = document.querySelectorAll('.function');
 const display = document.querySelector('#display p');
 const ac = document.querySelector('#clear');
-const zero = document.querySelector('#zero')
+const zero = document.querySelector('#zero');
+const decimal = document.querySelector('#decimal');
 
 //constructor that handles the calculations
 function Calculate(firstNum, operator, secondNum){
@@ -41,6 +42,7 @@ let firstNum, operator, secondNum, toCalculate = 0;
 const clear = function(e) {
     if(e.target.className.includes('number')) {
         display.textContent = '';
+        ac.textContent = 'C';
         removeEventListener('mousedown', clear);
     }
 }
@@ -48,8 +50,8 @@ const clear = function(e) {
 const allClear = function() {
         addEventListener('mousedown', clear);
         display.textContent = '0';
-        removeEventListener('mousedown', allClear);
         ac.textContent = 'AC';
+        removeEventListener('mousedown', allClear);
 }
 
 const zeroClear = function() {
@@ -58,8 +60,18 @@ const zeroClear = function() {
     }
 }
 
-ac.addEventListener('mousedown', allClear);
+ac.addEventListener('click', allClear);
 zero.addEventListener('mousedown', zeroClear);
+decimal.addEventListener('click', oneDot);
+
+//only one decimal point
+function oneDot() {
+    if(!display.textContent.includes('.')) {
+        if(!display.textContent) {
+            display.textContent += '0.';
+        } else {display.textContent += '.';}
+    }
+}
 
 //get value for first number
 numbers.forEach(e => {
@@ -69,9 +81,8 @@ numbers.forEach(e => {
 
 //display and get number
 function getFirstNum(e) {
-    if (display.textContent === '0') zeroClear();
-        display.textContent += e.target.textContent;
-        ac.textContent = 'C';
+        if(display.textContent === '0') zeroClear();
+        if(e.target.id !== 'decimal') display.textContent += e.target.textContent;
 }
 
 //get operator
