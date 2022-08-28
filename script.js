@@ -85,7 +85,7 @@ numbers.forEach(e => {
 //display and get number
 function getFirstNum(e) {
         if(display.textContent === '0') zeroClear();
-        if(e.target.id !== 'decimal') display.textContent += e.target.textContent;
+        if(e.target.id !== 'decimal') display.textContent = display.textContent + e.target.textContent;
 }
 
 //get operator
@@ -107,6 +107,6 @@ equal.addEventListener('click', getSecondNum);
 function getSecondNum(e) {
         secondNum = Number(display.textContent);
         toCalculate = new Calculate(firstNum, operator, secondNum);
-        display.textContent = toCalculate[operator]();
+        display.textContent = toCalculate[operator]().toLocaleString('en-US');
         addEventListener('mousedown', clear);
 }
